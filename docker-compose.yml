@@ -2,7 +2,7 @@ services:
   server:
     build: .
     volumes:
-      - .:/home/node/app
+      - .:/usr/src/node/app
     command: bash -c "npm run docker:migration:run && npm run docker:start:dev"
     ports:
       - 3000:3000

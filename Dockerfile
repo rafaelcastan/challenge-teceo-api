@@ -1,13 +1,19 @@
-FROM node:18.14.2
+FROM node:18-alpine 
 
-WORKDIR /home/node/app
+RUN apk update && apk add bash
 
-COPY package*.json ./
+WORKDIR /usr/src/node
 
-RUN npm install
+COPY  package.json ./
 
-COPY . .
+RUN yarn install 
 
-RUN npm run build
+WORKDIR /usr/src/node/app
+
+COPY  . .
+
+RUN yarn global add @nestjs/cli
+
+RUN yarn build
 
 CMD [ "node", "dist/main.js" ]
