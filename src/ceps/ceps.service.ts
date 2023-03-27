@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ViaCepService } from 'src/services/via-cep/via-cep.service';
+import { ViaCepService } from '../services/via-cep/via-cep.service';
 
 import { Repository } from 'typeorm';
 import { Cep } from './entities/cep.entity';
@@ -22,7 +22,7 @@ export class CepsService {
       const data = await this.viaCepService.getCepData(cep);
 
       const cepData = this.cepsRepository.create(data);
-      return await this.cepsRepository.save(cepData);
+      return this.cepsRepository.save(cepData);
     }
 
     return storedCepData;

@@ -2,7 +2,7 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 
 export const postgressDataSourceOptions: DataSourceOptions = {
   type: 'postgres',
-  host: 'localhost',
+  host: process.env.NODE_ENV === 'docker' ? 'postgres' : 'localhost', //this have to be localhost on develop and postgres on docker
   port: 5432,
   username: 'postgres',
   password: 'viacep2023',

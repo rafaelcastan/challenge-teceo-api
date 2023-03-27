@@ -24,39 +24,69 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Teceo challenge: This api get data about a cep on the [ViaCEP](https://viacep.com.br/) api, store them in a database and them send to the client. If the cep requested is stored in the database the api will return it data without make a request to ViaCep api.
+
+This project was made using:
+
+- [NestJs](https://nestjs.com/)
+- [PostgresSQL](https://www.postgresql.org/)
+- [Jest](https://jestjs.io/pt-BR/)
+- [Swagger](https://swagger.io/)
 
 ## Installation
 
 ```bash
-$ yarn install
+
+$ yarn  install
+
 ```
 
 ## Running the app
 
 ```bash
+
 # development
-$ yarn run start
+
+$ yarn  run  start
+
+
 
 # watch mode
-$ yarn run start:dev
+
+$ yarn  run  start:dev
+
+
 
 # production mode
-$ yarn run start:prod
+
+$ yarn  run  start:prod
+
 ```
+
+You can use docker to see the application working, just run at the root of the project:
+
+    $ docker-compose up -d
+
+It will be available on port 3001, you can access the API documentation at: [http://localhost:3001/api](http://localhost:3001/api)
+
+![enter image description here](https://i.ibb.co/PFzyGxb/swagger.webp)
 
 ## Test
 
 ```bash
-# unit tests
-$ yarn run test
 
-# e2e tests
-$ yarn run test:e2e
+# unit tests
+
+$ yarn  run  test
+
 
 # test coverage
-$ yarn run test:cov
+
+$ yarn  run  test:cov
+
 ```
+
+![enter image description here](https://i.ibb.co/F4MRWfD/image.png)
 
 ## Support
 
@@ -65,7 +95,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## Stay in touch
 
 - Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+
 - Website - [https://nestjs.com](https://nestjs.com/)
+
 - Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License

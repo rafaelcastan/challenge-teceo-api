@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ApiOkResponse } from '@nestjs/swagger';
-import { ClearEverythingNotNumber } from 'src/pipes/clear-everything-not-number';
+import { ClearEverythingNotNumber } from '../pipes/clear-everything-not-number';
 import { CepsService } from './ceps.service';
 import { CepDto } from './dto/cep.dto';
 

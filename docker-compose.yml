@@ -1,0 +1,22 @@
+services:
+  server:
+    build: .
+    volumes:
+      - .:/home/node/app
+    command: bash -c "npm run docker:migration:run && npm run docker:start:dev"
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: viacep2023
+    ports:
+      - 5432:5432
+    volumes:
+      - ./.docker/postgres:/var/lib/postgresql/data

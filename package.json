@@ -17,10 +17,12 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:run": "typeorm-ts-node-commonjs migration:run -d ",
-    "migration:revert": "typeorm-ts-node-commonjs migration:revert -d "
+    "migration:create": "typeorm-ts-node-commonjs migration:create",
+    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/data-sources/postgres.ts",
+    "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/data-sources/postgres.ts",
+    "docker:start:dev": "NODE_ENV=docker nest start --watch",
+    "docker:migration:run": "NODE_ENV=docker typeorm-ts-node-commonjs migration:run -d src/data-sources/postgres.ts"
   },
   "dependencies": {
     "@nestjs/axios": "^2.0.0",
@@ -51,6 +53,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "29.3.1",
+    "jest-mock-extended": "^3.0.4",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
     "supertest": "^6.1.3",

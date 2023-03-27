@@ -1,26 +1,27 @@
 import { HttpService } from '@nestjs/axios';
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { catchError, firstValueFrom } from 'rxjs';
-import { AxiosError } from 'axios';
-import { CepDto } from 'src/models/ceps/dto/cep.dto';
+import { ICep } from './interfaces/cep.interface';
 
 @Injectable()
 export class ViaCepService {
   constructor(private httpService: HttpService) {}
 
-  async getCepData(cep: string) {
+  async getCepData(cep: string): Promise<ICep> {
     const { data } = await firstValueFrom(
-      this.httpService
-        .get<CepDto>(`https://viacep.com.br/ws/${cep}/json/`)
-        .pipe(
-          catchError((error: AxiosError) => {
-            throw error.response.data;
-          }),
-        ),
+      this.httpService.get<ICep>(`https://viacep.com.br/ws/${cep}/json/`).pipe(
+        catchError(() => {
+          throw new BadRequestException();
+        }),
+      ),
     );
 
     if (!data.cep) {
-      throw new NotFoundException();
+      throw new NotFoundException('Cep não encontrado');
     }
 
     return data;
