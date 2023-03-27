@@ -5,16 +5,16 @@ RUN apk update && apk add bash
 WORKDIR /usr/src/node
 
 COPY  package.json ./
-COPY yarn.lock ./
+COPY package-lock.json ./
 
-RUN yarn install 
+RUN npm ci 
 
 WORKDIR /usr/src/node/app
 
 COPY  . .
 
-RUN yarn global add @nestjs/cli
+RUN npm install -g @nestjs/cli
 
-RUN yarn build
+RUN npm run build
 
 CMD [ "node", "dist/main.js" ]
