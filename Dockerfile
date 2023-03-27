@@ -5,6 +5,7 @@ RUN apk update && apk add bash
 WORKDIR /usr/src/node
 
 COPY  package.json ./
+COPY yarn.lock ./
 
 RUN yarn install 
 
