@@ -67,7 +67,7 @@ You can use docker to see the application working, just run at the root of the p
 
     $ docker-compose up -d
 
-It will be available on port 3001, you can access the API documentation at: [http://localhost:3001/api](http://localhost:3001/api)
+It will be available on port 3000, you can access the API documentation at: [http://localhost:3000/api](http://localhost:3000/api)
 
 ![enter image description here](https://i.ibb.co/PFzyGxb/swagger.webp)
 
